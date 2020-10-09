@@ -3,18 +3,31 @@ import unittest
 
 '''
 ###################################################################################################################
-Write an efficient function that checks whether any permutation of an input string is a palindrom
-You can assume the input string only contains lowercase letters
-Examples:
+Each round, players receive a score between 0 and 100, which you use to rank them from highest to
+lowest. So far you're using an algorithm that sorts in O(nlg{n}) O(nlgn) time, but players are
+complaining that their rankings aren't updated fast enough. You need a faster sorting algorithm.
 
-"civic" should return True
-"ivicc" should return True
-"civil" should return False
-"livci" should return False
+Write a function that takes:
+
+a list of unsorted_scores
+the highest_possible_score in the game
+and returns a sorted list of scores in less than O(nlg{n}) O(nlgn) time.
+
+For example:
+
+unsorted_scores = [37, 89, 41, 65, 91, 53]
+HIGHEST_POSSIBLE_SCORE = 100
+
+# Returns [91, 89, 65, 53, 41, 37]
+sort_scores(unsorted_scores, HIGHEST_POSSIBLE_SCORE)
 
 ###################################################################################################################
 LINK :-
-https://www.interviewcake.com/question/python3/permutation-palindrome?course=fc1&section=hashing-and-hash-tables
+https://www.interviewcake.com/question/python3/top-scores?course=fc1&section=hashing-and-hash-tables
+###################################################################################################################
+NOTES :-
+Time complexity of this algo is O(n) because even though we are using nested looping, code will run
+only n time where n is number of element in unsorted_scores
 ###################################################################################################################
 '''
 
@@ -32,6 +45,7 @@ def sort_scores(unsorted_scores, highest_possible_score):
             lookup_array[i] -= 1
             k += 1
     return unsorted_scores
+
 
 # Tests
 
